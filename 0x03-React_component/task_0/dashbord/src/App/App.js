@@ -4,7 +4,6 @@ import Login from '../Login/Login'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import Notifications from '../Notifications/Notifications';
-
 import CourseList from '../CourseList/CourseList';
 
 const listCourses = [
@@ -15,13 +14,11 @@ const listCourses = [
 const listNotifications = [
   { id: 1, type: 'default', value: 'New course available' },
   { id: 2, type: 'urgent', value: 'New resume available' },
-  { id: 3, type: 'urgent', html: { __html: '<strong>Urgent requirement</strong> - complete by EOD' } }
+  {  id: 3, type: 'urgent', html: { __html: getLatestNotification()}  }
 ];
 
 class App extends React.component {
   render() {
-
-    var logged = (!isLoggedIn) ? <Login /> : <CourseList />;
 
     return (
       <React.Fragment>
