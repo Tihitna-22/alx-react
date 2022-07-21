@@ -1,29 +1,33 @@
-import React from 'react'
-import CourseListRow from './CourseListRow'
+import React from 'react';
+import './CourseList.css';
+import CourseListRow from './CourseListRow';
+import PropTypes from 'prop-types'; // ES6
+import CourseShape from "./CourseShape";
 
-function CourseList() {
-    return (
-        <table id="CourseList" cellSpacing='0'>
-            <thead>
-                <CourseListRow textFirstCell='Available courses' isHeader={true} />
-                <CourseListRow textFirstCell='Course Name' textSecondCell='Credit' isHeader={true} />
-            </thead>
-            <tbody>
-                {(listCourses.length > 0) ?
-                    (listCourses.map(({ id, name, credit }) => (
-                        <CourseListRow key={id} textFirstCell={name} textSecondCell={credit} />
-                    ))) :
-                    (
-                        <tr>
-                            <td colSpan='2'>
-                                No course available yet
-                            </td>
-                        </tr>
-                    )
-                }
-            </tbody>
-        </table>
-    )
+function CourseList({ listCourses }) {
+
+  return (
+    <div className="container-course">
+      <table id='CourseList'>
+        <thead>
+          <CourseListRow isHeader={true} textFirstCell="Available courses"></CourseListRow>
+          <CourseListRow isHeader={true} textFirstCell="Course name" textSecondCell="Credit"></CourseListRow>
+        </thead>
+        <tbody>
+          {listCourses.length === 0 ? (<CourseListRow textFirstCell="No course available yet" isHeader={false} />) : <></>}
+          {listCourses.map((course) => (<CourseListRow key={course.id} textFirstCell={course.name} textSecondCell={course.credit} isHeader={false} />))}
+        </tbody>
+      </table>
+    </div>
+  );
 }
 
-export default CourseList
+CourseList.defaultProps = {
+  listCourses: [],
+};
+
+CourseList.propTypes = {
+  listCourses: PropTypes.arrayOf(CourseShape),
+};
+
+export default CourseList;

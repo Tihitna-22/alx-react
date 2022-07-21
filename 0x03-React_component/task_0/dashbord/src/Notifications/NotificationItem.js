@@ -1,28 +1,8 @@
-import React from 'react';
-// import { getLatestNotification }  from '../utils/utils'
+import React from 'react'
 
-
-
-export function NotificationItem({ type, html, value }) {
-    if (html === undefined)
-        return (
-            <li data-priority={type}>
-                {value}
-            </li>
-        );
-    return (
-        <li data-priority={type} dangerouslySetInnerHTML={html}></li>
-    );
-};
-NotificationItem.propTypes = {
-    type: PropTypes.string.isRequired,
-    value: PropTypes.string,
-    html: PropTypes.shape({ '_html': PropTypes.string })
-};
-
-
-NotificationItem.defaultProps = {
-    type: "default"
-};
+function NotificationItem(prop) {
+  if (prop.value) return (<li data-notification-type={prop.type}>{prop.value}</li>);
+  else return (<li data-notification-type={prop.type} dangerouslySetInnerHTML={prop.html}></li>);
+}
 
 export default NotificationItem;
