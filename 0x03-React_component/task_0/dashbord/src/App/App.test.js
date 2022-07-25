@@ -12,7 +12,7 @@ describe('Test App.js', () => {
   });
 
   it('check that CourseList is not displayed when isLoggedIn is false', (done) => {
-    const wrapper = shallow(<App />);
+    const wrapper = shallow(<App isLoggedIn={false} />);
     expect(wrapper.find(CourseList)).to.have.lengthOf(0);
     done();
   });
