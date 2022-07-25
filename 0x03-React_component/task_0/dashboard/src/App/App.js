@@ -19,7 +19,7 @@ const listNotifications = [
   { id: 3, type: 'urgent', html: { __html: getLatestNotification() } }
 ];
 
-class App extends React.component {
+class App extends React.Component {
   render() {
     return (
       <React.Fragment>
