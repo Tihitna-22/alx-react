@@ -1,31 +1,25 @@
-.container-course {
-  min-height: 26rem;
-  padding: 1rem;
+:root {
+  --border-table-color: rgb(170, 170, 170);
 }
 
-table {
-  width: 100%;
+#CourseList {
+  margin-top: 40px;
+  border: 1px solid var(--border-table-color);
+  border-collapse: collapse;
+  width: 95%;
 }
 
-thead tr:first-of-type th {
+#CourseList th {
+  border-top: 1px solid var(--border-table-color);
+  border-bottom: 1px solid var(--border-table-color);
+  text-align: left;
+  font-size: 18px;
+}
+
+#CourseList th[colspan="2"] {
   text-align: center;
 }
 
-th, td {
-  padding: 0.25rem;
-  border: 1px solid lightgray;
-}
-
-th {
+#CourseList td {
   text-align: left;
-}
-
-thead tr:last-of-type th:first-of-type,
-tbody tr td:first-of-type {
-  border-right: 0;
-}
-
-thead tr:last-of-type th:last-of-type,
-tbody tr td:last-of-type {
-  border-left: 0;
 }

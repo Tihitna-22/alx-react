@@ -8,10 +8,6 @@ module.exports = {
     filename: "bundle.js",
     path: path.resolve("./dist"),
   },
-  performance: {
-    maxAssetSize: 1000000,
-    maxEntrypointSize: 1000000,
-  },
   devServer: {
     hot: true,
     contentBase: path.resolve("./dist"),

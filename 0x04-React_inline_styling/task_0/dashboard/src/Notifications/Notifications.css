@@ -1,35 +1,31 @@
 :root {
-  --color-white: #fff;
-  --color-hb: #e1354b;
-  --color-blue: #0000ff;
-  --color-red: #ff0000;
-}
-
-.Notifications {
-  border: 3px dashed #e1354b;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.5rem;
-  width: 25rem;
-}
-
-ul li[data-notification-type='default'] {
-  color: var(--color-blue);
-}
-
-ul li[data-notification-type='urgent'] {
-  color: var(--color-red);
+  --main-color: #e01d3f;
 }
 
 .menuItem {
-  margin-bottom: 10px;
+  text-align: right;
 }
 
-.notification-container {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  right: 12px;
-  flex-wrap: wrap;
-  align-items: flex-end;
+.Notifications {
+  float: right;
+  border: 3px dashed var(--main-color);
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.Notifications button img {
+  width: 10px;
+}
+
+.Notifications p {
+  margin: 0;
+  margin-top: 15px;
+}
+
+[data-notification-type="default"] {
+  color: blue;
+}
+
+[data-notification-type="urgent"] {
+  color: red;
 }
