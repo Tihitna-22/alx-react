@@ -194,5 +194,34 @@ describe("<Notifications />", () => {
 
       jest.restoreAllMocks();
     });
+
+    it("checks if clicking menuItem calls handleDisplayDrawer", () => {
+
+      const handleDisplayDrawer = jest.fn();
+      const handleHideDrawer = jest.fn();
+      const wrapper = shallow(<Notifications
+        handleDisplayDrawer={handleDisplayDrawer}
+        handleHideDrawer={handleHideDrawer}
+      />)
+      wrapper.find("#menuItem").simulate("click");
+      expect(handleDisplayDrawer).toHaveBeenCalled();
+      expect(handleHideDrawer).not.toHaveBeenCalled();
+      jest.restoreAllMocks();
+    })
+
+    it("checks if clicking menuItem calls handleHideDrawer", () => {
+
+      const handleDisplayDrawer = jest.fn();
+      const handleHideDrawer = jest.fn();
+      const wrapper = shallow(<Notifications
+        displayDrawer
+        handleDisplayDrawer={handleDisplayDrawer}
+        handleHideDrawer={handleHideDrawer}
+      />);
+      wrapper.find("#closeNotifications").simulate("click");
+      expect(handleHideDrawer).toHaveBeenCalled();
+      expect(handleDisplayDrawer).not.toHaveBeenCalled();
+      jest.restoreAllMocks();
+    })
   });
 });
