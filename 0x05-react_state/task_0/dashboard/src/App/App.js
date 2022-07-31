@@ -30,7 +30,9 @@ class App extends Component {
     this.handleKeyCombination = this.handleKeyCombination.bind(this);
     this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
     this.handleHideDrawer = this.handleHideDrawer.bind(this);
-    this.state = { displayDrawer: false };
+    this.state = { 
+      displayDrawer: false
+     };
   }
 
   handleKeyCombination(e) {
@@ -148,3 +150,5 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+
+
