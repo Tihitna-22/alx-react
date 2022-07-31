@@ -27,9 +27,10 @@ document.body.style.margin = 0;
 class App extends Component {
   constructor(props) {
     super(props);
-    this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
     this.handleKeyCombination = this.handleKeyCombination.bind(this);
-
+    this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
+    this.handleHideDrawer = this.handleHideDrawer.bind(this);
+    this.state = { displayDrawer: false };
   }
 
   handleKeyCombination(e) {
@@ -39,6 +40,14 @@ class App extends Component {
     }
   }
 
+  handleDisplayDrawer() {
+    this.setState({ displayDrawer: true });
+  }
+
+  handleHideDrawer() {
+    this.setState({ displayDrawer: false });
+  }
+
   componentDidMount() {
     document.addEventListener("keydown", this.handleKeyCombination);
   }
@@ -46,21 +55,16 @@ class App extends Component {
   componentWillUnmount() {
     document.removeEventListener("keydown", this.handleKeyCombination);
   }
-  handleDisplayDrawer() {
-    this.setState({ displayDrawer: true })
-  }
-  handleHideDrawer() {
-    this.setState({ displayDrawer: false })
-  }
 
   render() {
     const { isLoggedIn, logOut } = this.props;
-    const { displayDrawer } = this.props;
+    const { displayDrawer } = this.state;
 
     return (
       <>
-        <Notifications listNotifications={listNotifications}
-          isplayDrawer={displayDrawer}
+        <Notifications
+          listNotifications={listNotifications}
+          displayDrawer={displayDrawer}
           handleDisplayDrawer={this.handleDisplayDrawer}
           handleHideDrawer={this.handleHideDrawer}
         />
@@ -82,15 +86,7 @@ class App extends Component {
           <BodySection title="News from the School">
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
+              industry.
             </p>
           </BodySection>
 
