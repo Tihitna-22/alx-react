@@ -2,6 +2,6 @@ import { Map } from 'immutable';
 
 export default function accessImmutableObject(object, array) {
   const immut = Map(object);
-  const name = immut.getIn(array);
+  const name = immut.getIn(array, undefined);
   return name;
 }
